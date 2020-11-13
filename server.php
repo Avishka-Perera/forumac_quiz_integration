@@ -11,7 +11,7 @@ $errors = array();
 //Register users
 if (isset($_POST['reg_user'])){
 
-	$db = mysqli_connect('localhost', 'root', '', 'forumac_quiz_integration');
+	include 'connect_db.php';
 	$username = mysqli_real_escape_string($db, $_POST['username']);
 	$email = mysqli_real_escape_string($db, $_POST['email']);
 	$password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
@@ -58,7 +58,7 @@ if (isset($_POST['login_user'])){
 
 	//check db for the user
 
-	$db = mysqli_connect('localhost', 'root', '', 'forumac_quiz_integration');
+	include 'connect_db.php';
 	$user_verify_query = "SELECT * FROM users WHERE username = '$username' and password = '$password' LIMIT 1";
 	$results = mysqli_query($db, $user_verify_query);
 	$user = mysqli_fetch_assoc($results);
@@ -90,7 +90,7 @@ if (isset($_COOKIE['action']) and isset($_COOKIE['action_id'])){
 		$query="UPDATE `users` SET `status`='Poster' WHERE `id`=$id";
 	}
 
-	$db = mysqli_connect('localhost', 'root', '', 'forumac_quiz_integration');	
+	include 'connect_db.php';
 	mysqli_query($db, $query);
 	mysqli_close($db);
 	setcookie("action", "", time() - 3600);
@@ -117,6 +117,7 @@ if (isset($_POST['publish_quiz'])){
 
 	//iteration
 	foreach ($_POST as $key => $value) {
+		//echo $key,'=>',$value,"<br>";
 
 		// builds basic data
 
@@ -150,7 +151,7 @@ if (isset($_POST['publish_quiz'])){
 			$query_trai = $query_trai.", ".$value;
 		//builds question data
 		}elseif (substr($key, 0, 1) === 'Q'){
-			if (substr($key, 2,1)=='Q'){
+			if (substr($key, 3,1)=='Q'){
 				if ($first_ques){
 					array_push($ques_data, $value);
 					$first_ques = FALSE;
@@ -169,10 +170,10 @@ if (isset($_POST['publish_quiz'])){
 					array_push($ques_data, $value);
 					$ques_num += 1;
 				}
-			}elseif (substr($key,2,2) == 'CB'){
+			}elseif (substr($key,3,2) == 'CB'){
 				$correct_answer = TRUE;
 				$atleast_one_correct = TRUE;
-			}elseif (substr($key,2,2)=='CT'){
+			}elseif (substr($key,3,2)=='CT'){
 				if ($correct_answer){
 					array_push($ques_data, "1~".$value);
 					$correct_answer = FALSE;
@@ -183,6 +184,9 @@ if (isset($_POST['publish_quiz'])){
 			
 		}
 	}
+
+	//echo $query_beg, $atleast_one_correct, $query_trai, '<br>';
+	//print_r($ques_data);
 	
 	if ($atleast_one_correct){
 		$num_of_ques +=1;
@@ -200,15 +204,17 @@ if (isset($_POST['publish_quiz'])){
 	}
 
 	$query =  $query_beg.$query_trai. ")";
+	//echo $query;
 	
 	//Creates the connection with the db and runs the query
-	$db = mysqli_connect('localhost', 'root', '', 'forumac_quiz_integration') or die('couldnt run the query');	
+	include 'connect_db.php';
 	mysqli_query($db, $query);
 	mysqli_close($db);
 	echo "Quiz added successfully.<br>";
 	
 
 }
+
 
 if (isset($_POST['start_time'])) {
 
@@ -219,7 +225,7 @@ if (isset($_POST['start_time'])) {
 	$quiz_id_name = $_POST['quiz_id_name'];
 
 	//create the connection
-	$db = mysqli_connect('localhost', 'root', '', 'forumac_quiz_integration');
+	include 'connect_db.php';
 
 	//add a new field if there are no existing quiz fields
 	//checks the db for existing fields
@@ -281,7 +287,7 @@ if (isset($_POST['score'])){
 	$quiz_results_arr = $_POST['quiz_results_arr'];
 
 
-	$db = mysqli_connect('localhost', 'root', '', 'forumac_quiz_integration');
+	include 'connect_db.php';
 	$query = "SELECT `".$quiz_taker."` FROM resps WHERE `quiz_id_name` = '".$quiz_id_name."'";
 	$results = mysqli_query($db,$query);
 	$start_time = mysqli_fetch_array($results)[0];
