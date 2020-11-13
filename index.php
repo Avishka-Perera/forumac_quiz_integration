@@ -47,7 +47,7 @@ if (isset($_GET['logout'])){
 				document.getElementById("quiz_name_text_disp").value = document.getElementById("quiz_name_text").value;
 				document.getElementById("quiz_name_text_disp").hidden = false;
 				document.getElementById("quiz_name_text_disp").disabled = true;
-				alert('Please copy the following embeding link and paste in the forumAC post.  <iframe src="quizes.php?quiz_name='+pub_time+'" width="500px" height="500px" frameborder="0" style="margin: auto; display: block; width: 500px; height: 700px; border-left: 1px solid lightsteelblue; border-right: 1px solid lightsteelblue;">Loading....</iframe>');
+				alert('Please copy the following embeding link and paste in the forumAC post.  <iframe src="quizes.php?quiz_name=quiz'+pub_time+'" width="500px" height="500px" frameborder="0" style="margin: auto; display: block; width: 500px; height: 700px; border-left: 1px solid lightsteelblue; border-right: 1px solid lightsteelblue;">Loading....</iframe>');
 				$("#publish_div").show(1000);				
 			}else{
 				alert('Please enter a quiz name');
@@ -66,41 +66,41 @@ if (isset($_GET['logout'])){
 				}else{
 					disp_ques_num = ques_num.toString();
 				}
-				ques_num = ques_num.toString();
+				
 				var new_ques_div = $(
-				'<div name = "Q'+ques_num+'" onclick="ques_div_click('+ques_num+')" class="question_div">\
+				'<div name = "Q'+disp_ques_num+'" onclick="ques_div_click('+disp_ques_num+')" class="question_div">\
 			 		<span>\
-			 			<input type="text" name="Q'+ques_num+'Q" value="Question '+disp_ques_num+'" style="width: 90px;">\
+			 			<input type="text" name="Q'+disp_ques_num+'Q" value="Question '+disp_ques_num+'" style="width: 90px;">\
 			 		</span>\
 			 		<span>\
-			 			<input type="checkbox" name="Q'+ques_num+'CB1">\
+			 			<input type="checkbox" name="Q'+disp_ques_num+'CB1">\
 			 		</span>\
 			 		<span>\
-			 			<input type="text" name="Q'+ques_num+'CT1" value="(1)" style="width: 20px;">\
+			 			<input type="text" name="Q'+disp_ques_num+'CT1" value="(1)" style="width: 20px;">\
 			 		</span>\
 			 		<span>\
-			 			<input type="checkbox" name="Q'+ques_num+'CB2">\
+			 			<input type="checkbox" name="Q'+disp_ques_num+'CB2">\
 			 		</span>\
 			 		<span>\
-			 			<input type="text" name="Q'+ques_num+'CT2" value="(2)" style="width: 20px;">\
+			 			<input type="text" name="Q'+disp_ques_num+'CT2" value="(2)" style="width: 20px;">\
 			 		</span>\
 			 		<span>\
-			 			<input type="checkbox" name="Q'+ques_num+'CB3">\
+			 			<input type="checkbox" name="Q'+disp_ques_num+'CB3">\
 			 		</span>\
 			 		<span>\
-			 			<input type="text" name="Q'+ques_num+'CT3" value="(3)" style="width: 20px;">\
+			 			<input type="text" name="Q'+disp_ques_num+'CT3" value="(3)" style="width: 20px;">\
 			 		</span>\
 			 		<span>\
-			 			<input type="checkbox" name="Q'+ques_num+'CB4">\
+			 			<input type="checkbox" name="Q'+disp_ques_num+'CB4">\
 			 		</span>\
 			 		<span>\
-			 			<input type="text" name="Q'+ques_num+'CT4" value="(4)" style="width: 20px;">\
+			 			<input type="text" name="Q'+disp_ques_num+'CT4" value="(4)" style="width: 20px;">\
 			 		</span>\
 			 		<span>\
-			 			<input type="checkbox" name="Q'+ques_num+'CB5">\
+			 			<input type="checkbox" name="Q'+disp_ques_num+'CB5">\
 			 		</span>\
 			 		<span>\
-			 			<input type="text" name="Q'+ques_num+'CT5" value="(5)" style="width: 20px;">\
+			 			<input type="text" name="Q'+disp_ques_num+'CT5" value="(5)" style="width: 20px;">\
 			 		</span>\
 			 	</div>'
 			 	);
@@ -187,39 +187,39 @@ if (isset($_GET['logout'])){
 	 	
 
 	 	<!-- Creates the initial question-->
-	 	<div name = "Q1" onclick="ques_div_click(1)" class="question_div">
+	 	<div name = "Q01" onclick="ques_div_click(1)" class="question_div">
 	 		<span>
-	 			<input type="text" name="Q1Q" value="Question 01" style="width: 90px;">
+	 			<input type="text" name="Q01Q" value="Question 01" style="width: 90px;">
 	 		</span>
 	 		<span>
-	 			<input type="checkbox" name="Q1CB1">
+	 			<input type="checkbox" name="Q01CB1">
 	 		</span>
 	 		<span>
-	 			<input type="text" name="Q1CT1" value="(1)" style="width: 20px;">
+	 			<input type="text" name="Q01CT1" value="(1)" style="width: 20px;">
 	 		</span>
 	 		<span>
-	 			<input type="checkbox" name="Q1CB2">
+	 			<input type="checkbox" name="Q01CB2">
 	 		</span>
 	 		<span>
-	 			<input type="text" name="Q1CT2" value="(2)" style="width: 20px;">
+	 			<input type="text" name="Q01CT2" value="(2)" style="width: 20px;">
 	 		</span>
 	 		<span>
-	 			<input type="checkbox" name="Q1CB3">
+	 			<input type="checkbox" name="Q01CB3">
 	 		</span>
 	 		<span>
-	 			<input type="text" name="Q1CT3" value="(3)" style="width: 20px;">
+	 			<input type="text" name="Q01CT3" value="(3)" style="width: 20px;">
 	 		</span>
 	 		<span>
-	 			<input type="checkbox" name="Q1CB4">
+	 			<input type="checkbox" name="Q01CB4">
 	 		</span>
 	 		<span>
-	 			<input type="text" name="Q1CT4" value="(4)" style="width: 20px;">
+	 			<input type="text" name="Q01CT4" value="(4)" style="width: 20px;">
 	 		</span>
 	 		<span>
-	 			<input type="checkbox" name="Q1CB5">
+	 			<input type="checkbox" name="Q01CB5">
 	 		</span>
 	 		<span>
-	 			<input type="text" name="Q1CT5" value="(5)" style="width: 20px;">
+	 			<input type="text" name="Q01CT5" value="(5)" style="width: 20px;">
 	 		</span>
 	 	</div>
  	</form>
@@ -271,7 +271,7 @@ if (isset($_GET['logout'])){
 
 				<!--Manages existing user privileges-->
 				<?php
-					$db = mysqli_connect('localhost', 'root', '', 'forumac_quiz_integration');
+					include 'connect_db.php';
 					$retrieve_user_query = "SELECT * FROM users WHERE status = 'Poster'";
 					$posters = mysqli_query($db, $retrieve_user_query) or die('Cannot run the query to retrieve users');
 					$retrieve_user_query = "SELECT * FROM users WHERE status = 'Admin'";
