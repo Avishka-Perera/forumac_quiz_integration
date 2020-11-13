@@ -10,7 +10,7 @@ if (isset($_GET['quiz_name'])){
 
 	$quiz_id_name = $_GET['quiz_name'];
 
-	$db = mysqli_connect('localhost', 'root', '', 'forumac_quiz_integration');
+	include 'connect_db.php';
 
 	$query = "SELECT * FROM quizes WHERE quiz_id_name = '$quiz_id_name'";
 
@@ -234,8 +234,12 @@ if (isset($_GET['quiz_name'])){
 					if (time_left<=-1 || quiz_ended) {
 						clearInterval(timer);
 						end_quiz_conf_func();
-					}				
+					}
+					if (time_left < 0){
+						document.getElementById('time_left').innerHTML = format_time(0);
+					}else{
 					document.getElementById('time_left').innerHTML = format_time(time_left);
+					}
 					time_left -= 1;
 				}
 			}
