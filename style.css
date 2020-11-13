@@ -1,0 +1,213 @@
+h2 {
+	background-color: maroon;
+	color: white;
+	padding: 10px;
+	font-family: 'Bebas Neue';
+	font-size: 40px;
+	font-weight: 10px;
+	font-style: normal;
+}
+
+hr{
+	width: 80%;
+	height: 1px;
+	border-width: 0;
+	color: lightsteelblue;
+	background-color: lightsteelblue;
+}
+
+#login_div{
+	margin: auto;
+	width: 50%;
+	text-align: center;
+	border: 2px solid maroon;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#login_btn{
+	margin: 10px
+}
+
+#login_table{
+	margin: 10px;
+	margin: auto;
+}
+
+#login_table td{
+	width: 250px
+	margin:0px;
+}
+
+#quiz_dip_table .left_column{
+	width: 300px;
+}
+
+#quiz_dip_table .right_column{
+	width: 300px;
+}
+
+#publish_clear_div{
+	text-align: center;
+	margin: auto;
+}
+
+
+#quiz_dip_table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#reg_user_table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#reg_user_table .right_column{
+	width: 185px;
+}
+
+#reg_user_table .left_column{
+	width: 185px;
+}
+
+.nav_btn{
+	background-color: white;
+	color: dodgerblue;
+	border: 2px solid dodgerblue;
+	border-radius: 4px;
+	padding: 5px;
+	outline: none;
+	margin: 5px;
+}
+
+.nav_btn:focus{
+	background-color: lightsteelblue;
+}
+
+
+.act_btn{
+	background-color: dodgerblue;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	padding: 5px;
+	outline: none;
+	margin: 5px;
+}
+
+.act_btn:focus{
+	color: lightsteelblue;
+}
+
+.quiz_creator_form{
+	margin: auto;
+}
+
+
+.question_div{
+	margin: auto;
+}
+
+
+.left_column{
+	text-align: right;
+}
+
+.right_column{
+	text-align: left;
+}
+
+.manage_user_table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.quiz_name{
+	background-color: maroon;
+	color: white;
+	padding: 10px;
+}
+
+.timer{
+	border: 3px solid dodgerblue;
+	border-radius: 50px;
+	padding: 10px;
+	float: right;
+	position: sticky;
+	top: 20px;
+	right: 40px;
+	color: dodgerblue;
+}
+
+.question{
+	margin: 5px;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: lightcyan;
+}
+
+.question td{
+	width: 50px;
+	text-align: center;
+}
+
+input[type=text]{
+	border: 2px solid lightsteelblue;
+	border-radius: 4px;
+	outline: none;
+	margin: 5px;
+}
+
+input[type=text]:focus{
+	background-color: lightblue;
+	border: 2px solid dodgerblue;
+}
+
+input[type=password]{
+	border: 2px solid lightsteelblue;
+	border-radius: 4px;
+	outline: none;
+	margin: 5px;
+}
+
+input[type=password]:focus{
+	background-color: lightblue;
+	border: 2px solid dodgerblue;
+}
+
+input[type=email]{
+	border: 2px solid lightsteelblue;
+	border-radius: 4px;
+	outline: none;
+	margin: 5px;
+}
+
+input[type=email]:focus{
+	background-color: lightblue;
+	border: 2px solid dodgerblue;
+}
+
+input[type=file]{
+	border: 2px solid lightsteelblue;
+	border-radius: 4px;
+	outline: none;
+	margin: 5px;
+}
+
+input[type=file]:focus{
+	background-color: lightblue;
+	border: 2px solid dodgerblue;
+}
+
+input[type=select]{
+	border: 2px solid lightsteelblue;
+	border-radius: 4px;
+	outline: none;
+	margin: 5px;
+}
+
+input[type=select]:focus{
+	background-color: lightblue;
+	border: 2px solid dodgerblue;
+}
